@@ -19,7 +19,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api", sessionRoutes);
 
 mongoose
-  .connect(process.env.MONGODB_URI, {
+  .connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
