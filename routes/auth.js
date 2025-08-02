@@ -37,7 +37,7 @@ router.post(
 
       await user.save();
 
-      // ✅ NO TOKEN - just return success message
+      // return success message
       res.status(201).json({
         message: "Account created successfully! Please log in.",
         user: {
@@ -52,7 +52,7 @@ router.post(
   }
 );
 
-// Login - ONLY place where JWT is returned
+// Login - JWT is returned
 router.post(
   "/login",
   [body("email").isEmail().normalizeEmail(), body("password").exists()],
@@ -77,7 +77,7 @@ router.post(
         return res.status(400).json({ message: "Invalid credentials" });
       }
 
-      // ✅ ONLY HERE - Generate and return JWT
+      //  Generate and return JWT
       const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
         expiresIn: "7d",
       });
