@@ -25,3 +25,11 @@ MONGODB_URI=your-mongodb-connection-string
 PORT=your-Port
 
 JWT_SECRET=your-jwt-secret-key
+
+
+To start in dev mode- 
+
+
+
+
+npm run dev
